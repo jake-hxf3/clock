@@ -1,0 +1,72 @@
+.hidden{
+    display: none;
+}
+
+.clock {
+    display: flex;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(8, 8, 38);
+}
+
+.rim {
+    width: 500px;
+    aspect-ratio: 1/1;
+    border: 20px red solid;
+    border-radius: 50%;
+    anchor-name: --rim;
+}
+
+.hand {
+    position: absolute;
+    position-anchor: --rim;
+    top: anchor(center);
+    left: anchor(center);
+    transform-origin: 0 50%; 
+}
+
+.h {
+    background-color: transparent;
+    width: calc(0.43*anchor-size(width)); 
+    z-index: 9;
+}
+
+.h::after {
+    content: "";
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent; 
+    border-left: 20px solid rgb(0, 208, 255);
+}
+
+.m {
+    top: calc(anchor(center) - 10px);
+    height: 20px;
+    background-color: white;
+    clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+    width: calc(0.45*anchor-size(width));
+    z-index: 10;
+}
+
+/*.s {
+    top: calc(anchor(center) - 10px);
+    height: 20px;
+    background-color: red;
+    clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+    width: calc(0.45*anchor-size(width));
+    z-index: 10;
+} */
+
+.s {
+    width: 100%;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-image: conic-gradient(transparent 0, darkred 145deg, transparent 150deg);
+    z-index: 1;
+}
